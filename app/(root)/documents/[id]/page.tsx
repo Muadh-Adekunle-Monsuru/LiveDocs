@@ -1,23 +1,25 @@
-import { Editor } from '@/components/editor/Editor';
-import Header from '@/components/Header';
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
-import React from 'react';
+import CollaborativeRoom from '@/components/CollaborativeRoom';
+import { getDocument } from '@/lib/actions/room.actions';
+import { currentUser } from '@clerk/nextjs/server';
+import { redirect } from 'next/navigation';
 
-export default function DocumentPage() {
+export default async function DocumentPage({
+	params: { id },
+}: SearchParamProps) {
+	const clerkUser = await currentUser();
+	if (!clerkUser) redirect('/sign-in');
+
+	const room = await getDocument({
+		roomId: id,
+		userId: clerkUser.emailAddresses[0].emailAddress,
+	});
+
+	if (!room) redirect('/');
+
+	//Asses the user persmission lever
 	return (
-		<div>
-			<Header>
-				<div className='flex w-fit items-center justify-center gap-2'>
-					<p className='document-title'>Untitled</p>
-				</div>
-				<SignedOut>
-					<SignInButton />
-				</SignedOut>
-				<SignedIn>
-					<UserButton />
-				</SignedIn>
-			</Header>
-			<Editor />
-		</div>
+		<main className='flex w-full flex-col items-center'>
+			<CollaborativeRoom roomId={id} roomMetadata={room.metadata} />
+		</main>
 	);
 }

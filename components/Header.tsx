@@ -1,10 +1,11 @@
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-export default function Header({ children }: HeaderProps) {
+export default function Header({ children, className }: HeaderProps) {
 	return (
-		<div className='header'>
+		<div className={cn('header', className)}>
 			<Link href='/'>
 				<Image
 					src={'/assets/icons/logo.svg'}
