@@ -1,13 +1,12 @@
 'use client';
-import React, { ReactNode } from 'react';
+import Loader from '@/components/Loader';
+import { getClerkUsers, getDocumentUsers } from '@/lib/actions/user.actions';
+import { useUser } from '@clerk/nextjs';
 import {
 	ClientSideSuspense,
 	LiveblocksProvider,
 } from '@liveblocks/react/suspense';
-import Loader from '@/components/Loader';
-import { getClerkUsers, getDocumentUsers } from '@/lib/actions/user.actions';
-import { getAllDocuments } from '@/lib/actions/room.actions';
-import { useUser } from '@clerk/nextjs';
+import { ReactNode } from 'react';
 export default function Provider({ children }: { children: ReactNode }) {
 	const { user: clerkUser } = useUser();
 	return (
@@ -20,7 +19,7 @@ export default function Provider({ children }: { children: ReactNode }) {
 			resolveMentionSuggestions={async ({ text, roomId }) => {
 				const roomUsers = await getDocumentUsers({
 					roomId,
-					currentUser: clerkUser?.emailAddresses[0].emailAddress!,
+					currentUser: clerkUser?.emailAddresses[0].emailAddress || '',
 					text,
 				});
 				return roomUsers;

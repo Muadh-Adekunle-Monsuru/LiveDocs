@@ -18,7 +18,7 @@ export default function Collaborator({
 	const [userType, setUserType] = useState(collaborator.userType || 'viewer');
 	const [loading, setLoading] = useState(false);
 
-	const shareDocumentHandler = async (type: string) => {
+	const shareDocumentHandler = async () => {
 		setLoading(true);
 		await updateDocumentAccess({ roomId, email, userType, updatedBy: user });
 		setLoading(false);
@@ -56,7 +56,7 @@ export default function Collaborator({
 				<div className='flex items-center'>
 					<UserTypeSelector
 						userType={userType as UserType}
-						setUserType={setUserType || 'viewer'}
+						setUserType={setUserType}
 						onClickHandler={shareDocumentHandler}
 					/>
 					<Button
