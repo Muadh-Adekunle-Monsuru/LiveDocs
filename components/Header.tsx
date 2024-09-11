@@ -6,7 +6,7 @@ import React from 'react';
 export default function Header({ children, className }: HeaderProps) {
 	return (
 		<div className={cn('header', className)}>
-			<Link href='/'>
+			<Link href='/dashboard'>
 				<Image
 					src={'/assets/icons/logo.svg'}
 					alt='Logo'
