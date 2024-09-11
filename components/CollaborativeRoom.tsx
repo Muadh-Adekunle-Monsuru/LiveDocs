@@ -10,6 +10,7 @@ import { currentUser } from '@clerk/nextjs/server';
 import { SquarePen } from 'lucide-react';
 import { updateDocument } from '@/lib/actions/room.actions';
 import Loader from './Loader';
+import ShareModal from './ShareModal';
 
 export default function CollaborativeRoom({
 	roomId,
@@ -108,6 +109,12 @@ export default function CollaborativeRoom({
 						</div>
 						<div className='flex w-full flex-1 justify-end gap-2'>
 							<ActiveCollabs />
+							<ShareModal
+								roomId={roomId}
+								collaborators={users}
+								creatorId={roomMetadata.creatorId}
+								currentUserType={currentUserType}
+							/>
 							<SignedOut>
 								<SignInButton />
 							</SignedOut>

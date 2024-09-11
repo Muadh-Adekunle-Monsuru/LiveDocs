@@ -1,4 +1,5 @@
 import AddDocumentBtn from '@/components/AddDocumentBtn';
+import { DeleteModal } from '@/components/DeleteModal';
 import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
 import { getAllDocuments } from '@/lib/actions/room.actions';
@@ -55,6 +56,7 @@ export default async function DashboardPage() {
 										</p>
 									</div>
 								</Link>
+								<DeleteModal roomId={id} />
 							</li>
 						))}
 					</ul>
