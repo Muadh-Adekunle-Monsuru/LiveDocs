@@ -38,7 +38,6 @@ export default async function DashboardPage() {
 						/>
 					</div>
 					<ul className='document-ul'>
-						@ts-ignore
 						{roomDocuments.data.map(({ id, metadata, createdAt }: any) => (
 							<li key={id} className='document-list-item'>
 								<Link
