@@ -1,6 +1,7 @@
 import AddDocumentBtn from '@/components/AddDocumentBtn';
 import { DeleteModal } from '@/components/DeleteModal';
 import Header from '@/components/Header';
+import { Notifications } from '@/components/Notifications';
 import { Button } from '@/components/ui/button';
 import { getAllDocuments } from '@/lib/actions/room.actions';
 import { dateConverter } from '@/lib/utils';
@@ -22,7 +23,7 @@ export default async function DashboardPage() {
 		<main className='home-container'>
 			<Header className='sticky left-0'>
 				<div className='flex items-center gap-2 lg:gap-4'>
-					<Button variant={'ghost'}>Notification</Button>
+					<Notifications />
 					<SignedIn>
 						<UserButton />
 					</SignedIn>
