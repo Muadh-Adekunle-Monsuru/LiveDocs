@@ -1,16 +1,6 @@
-import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
 import { SignedIn, SignedOut } from '@clerk/nextjs';
-import {
-	ArrowLeft,
-	ArrowRight,
-	Bolt,
-	Pencil,
-	PencilRuler,
-	PenTool,
-	Settings2,
-	UserRound,
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
