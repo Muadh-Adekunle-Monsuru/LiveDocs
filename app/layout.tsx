@@ -33,9 +33,9 @@ export default function RootLayout({
 				variables: { colorPrimary: '#3371ff', fontSize: '16px' },
 			}}
 		>
-			<html lang='en'>
+			<html lang='en' className=''>
 				<body
-					className={`${geistSans.variable} ${geistMono.variable} antialiased font-[family-name:var(--font-geist-sans)]`}
+					className={`${geistSans.variable} ${geistMono.variable} antialiased font-[family-name:var(--font-geist-sans)] custom-scrollbar`}
 				>
 					<Provider>{children}</Provider>
 				</body>
