@@ -110,8 +110,8 @@ export default function Home() {
 					</Link>
 				</Button>
 			</div>
-			<div className='grid grid-cols-3 grid-rows-2 h-full blur-[0.3px]'>
-				<div className='border row-span-2 border-gray-800 rounded-3xl p-10 m-1'>
+			<div className='grid grid-cols-3 grid-rows-3 lg:grid-rows-2 h-full blur-[0.3px]'>
+				<div className='border lg:row-span-2 row-span-3 border-gray-800 rounded-3xl p-2 lg:p-10 m-1'>
 					<Image
 						src={'/comments.webp'}
 						height={100}
@@ -124,7 +124,7 @@ export default function Home() {
 						Enable feedback in your document.
 					</p>
 				</div>
-				<div className='h-56 border border-gray-800 rounded-3xl p-10 m-1'>
+				<div className='h-56 border border-gray-800 col-span-2 lg:col-span-1 rounded-3xl p-2 lg:p-10 m-1'>
 					<Image
 						src={'/notifications.webp'}
 						height={70}
@@ -136,7 +136,7 @@ export default function Home() {
 						The notifications systems for collaboration.
 					</p>
 				</div>
-				<div className='h-56 border border-gray-800 rounded-3xl p-10 m-1'>
+				<div className='h-56 border border-gray-800  col-span-2 lg:col-span-1 rounded-3xl p-2 lg:p-10 m-1'>
 					<Image
 						src={'/text-editor.webp'}
 						height={70}
@@ -148,7 +148,7 @@ export default function Home() {
 						The collaborative text editor.
 					</p>
 				</div>
-				<div className='h-56 border col-span-2 border-gray-800 rounded-3xl p-10 m-1'>
+				<div className='h-56 border col-span-2 border-gray-800 rounded-3xl p-2 lg:p-10 m-1'>
 					<Image
 						src={'/realtime-apis.webp'}
 						height={80}
