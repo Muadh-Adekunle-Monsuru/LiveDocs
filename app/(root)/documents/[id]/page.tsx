@@ -4,6 +4,7 @@ import { getClerkUsers } from '@/lib/actions/user.actions';
 import { currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 
+let title = 'Document';
 export default async function DocumentPage({
 	params: { id },
 }: SearchParamProps) {
@@ -16,7 +17,7 @@ export default async function DocumentPage({
 	});
 
 	if (!room) redirect('/');
-
+	title = room.metadata.title;
 	const userIds = Object.keys(room.usersAccesses);
 	const users = await getClerkUsers({ userIds });
 
@@ -42,4 +43,16 @@ export default async function DocumentPage({
 			/>
 		</main>
 	);
+}
+
+export async function generateMetadata({ params }: { params: { id: string } }) {
+	try {
+		return {
+			title: title,
+		};
+	} catch (e) {
+		return {
+			title: 'Document',
+		};
+	}
 }

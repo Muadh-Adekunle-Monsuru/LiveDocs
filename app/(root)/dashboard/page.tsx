@@ -7,10 +7,14 @@ import { dateConverter } from '@/lib/utils';
 import { SignedIn, UserButton } from '@clerk/nextjs';
 import { currentUser } from '@clerk/nextjs/server';
 import { FileText } from 'lucide-react';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
+export const metadata: Metadata = {
+	title: 'Dashboard | LiveDocs',
+};
 export default async function DashboardPage() {
 	const clerkUser = await currentUser();
 	if (!clerkUser) redirect('/sign-in');
